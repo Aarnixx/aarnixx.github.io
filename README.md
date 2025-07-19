@@ -1,2 +1,3 @@
-# aarnixx.github.io
-My personal website.
+theme: jekyll-theme-minimal
+title: Aarnixx's homepage
+description: Bookmark this to keep an eye on my project updates!
