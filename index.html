@@ -5,6 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Aarni Annanolli</title>
   <link rel="icon" type="image/x-icon" href="Favicon.png">
+  <style>
+    html, body {
+      background: #0a0e1a !important;
+      margin: 0;
+      padding: 0;
+    }
+  </style>
   <link rel="stylesheet" href="styles.css" />
   <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
 </head>
@@ -14,47 +21,80 @@
     <nav class="navbar">
       <div class="brand">
         <h1 class="logo">Aarni Annanolli</h1>
-        <p class="small muted">Portfolio</p>
+        <p class="small muted" data-en="Portfolio" data-fi="Portfolio">Portfolio</p>
         <div class="role-cycler"></div>
       </div>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#languages">Languages</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#cv">CV</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+      <div class="nav-right">
+        <div class="lang-switcher">
+          <button class="lang-btn active" data-lang="en" aria-label="Switch to English">EN</button>
+          <button class="lang-btn" data-lang="fi" aria-label="Vaihda suomeksi">FI</button>
+        </div>
+        <ul class="nav-links">
+          <li><a href="#about" data-en="About" data-fi="Tietoja">About</a></li>
+          <li><a href="#languages" data-en="Languages" data-fi="Kielet">Languages</a></li>
+          <li><a href="#tools-technologies" data-en="Technologies" data-fi="Teknologiat">Technologies</a></li>
+          <li><a href="#projects" data-en="Projects" data-fi="Projektit">Projects</a></li>
+          <li><a href="#education" data-en="Education" data-fi="Koulutus">Education</a></li>
+          <li><a href="#experience" data-en="Experience" data-fi="Työkokemus">Experience</a></li>
+          <li><a href="#cv" data-en="CV" data-fi="CV">CV</a></li>
+          <li><a href="#contact" data-en="Contact" data-fi="Yhteystiedot">Contact</a></li>
+        </ul>
+      </div>
     </nav>
   </header>
 
   <main class="container">
     <section id="about">
-      <h2>About Me</h2>
-      <p>I’m a 16-year-old software developer with experience in Python and a strong interest in software development, game creation, and machine learning. 
-        I am currently studying software development and enjoy applying my skills to build software, games (using Godot), and AI solutions especially machine learning. I am passionate 
-        about learning new technologies and creating projects that combine creativity and functionality, with the goal of growing as a developer while contributing 
-        to impactful projects.</p>
+      <h2 data-en="About Me" data-fi="Tietoja minusta">About Me</h2>
+      <p data-en="I'm a calm and practical person who learns best by doing. I have good concentration skills and always complete tasks thoroughly, even when they take time. I'm easily interested in new challenges, especially in programming. I'm also interested in open-source projects, though I haven't yet contributed to their development myself. I'm currently studying Information and Communication Technology at Keuda, and I'm passionate about automating routine tasks, learning new programming languages, and game development using the Godot engine." 
+         data-fi="Olen rauhallinen ja käytännönläheinen ihminen, ja opin asiat parhaiten tekemällä. Minulla on hyvä keskittymiskyky ja teen asiat loppuun asti, vaikka ne veisivät aikaa. Kiinnostun helposti uusista haasteista, erityisesti ohjelmoinnin parissa. Minua kiinnostavat myös avoimen lähdekoodin projektit, vaikka en olisi vielä itse osallistunut niiden kehittämiseen. Opiskelen tällä hetkellä tieto- ja viestintätekniikkaa Keudassa, ja olen intohimoisen kiinnostunut rutiinitehtävien automatisointiin, uusien ohjelmointikielten oppimiseen ja pelikehitykseen Godot-pelimoottorissa.">
+        I'm a calm and practical person who learns best by doing. I have good concentration skills and always complete tasks thoroughly, even when they take time. 
+        I'm easily interested in new challenges, especially in programming. I'm also interested in open-source projects, though I haven't yet contributed to their development myself. 
+        I'm currently studying Information and Communication Technology at Keuda, and I'm passionate about automating routine tasks, learning new programming languages, 
+        and game development using the Godot engine.
+      </p>
+    </section>
+
+    <section id="primary-language">
+      <h2 data-en="Primary Language" data-fi="Pääohjelmointikieli">Primary Language</h2>
+      <div class="primary-lang-container">
+        <div class="primary-lang-card featured-card">
+          <div class="featured-badge" data-en="Main Language" data-fi="Pääkieli">Main Language</div>
+          <div class="card-top">
+            <a href="https://dotnet.microsoft.com/languages/csharp" target="_blank" rel="noopener noreferrer">
+              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/csharp.svg" alt="C# Logo" class="lang-logo featured-logo" />
+            </a>
+            <span class="featured-name">C#</span>
+          </div>
+          <div class="card-bottom">
+            <p data-en="My primary programming language. Experienced in object-oriented programming, .NET development, and building robust applications. Passionate about clean code architecture and modern C# features." 
+               data-fi="Pääohjelmointikieleni. Kokemusta olio-ohjelmoinnista, .NET-kehityksestä ja vankkojen sovellusten rakentamisesta. Intohtunut puhtaasta koodiarkkitehtuurista ja moderneista C#-ominaisuuksista.">
+              My primary programming language. Experienced in object-oriented programming, .NET development, and building robust applications. Passionate about clean code architecture and modern C# features.
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section id="languages">
-      <h2>Languages</h2>
-      <h3>Spoken Languages</h3>
+      <h2 data-en="Languages" data-fi="Kielet">Languages</h2>
+      <h3 data-en="Spoken Languages" data-fi="Puhutut kielet">Spoken Languages</h3>
       <div class="spoken-grid">
         <div class="card">
           <div class="card-top">Finnish</div>
-          <div class="card-bottom">Native</div>
+          <div class="card-bottom" data-en="Native" data-fi="Äidinkieli">Native</div>
         </div>
         <div class="card">
           <div class="card-top">English</div>
-          <div class="card-bottom">Fluent</div>
+          <div class="card-bottom" data-en="Fluent" data-fi="Sujuva">Fluent</div>
         </div>
         <div class="card">
           <div class="card-top">Swedish</div>
-          <div class="card-bottom">Limited</div>
+          <div class="card-bottom" data-en="Limited" data-fi="Rajoitettu">Limited</div>
         </div>
       </div>
 
-      <h3>Programming Languages</h3>
+      <h3 data-en="Programming Languages" data-fi="Ohjelmointikielet">Programming Languages</h3>
       <div class="programming-grid">
         <div class="card">
           <div class="card-top">
@@ -63,9 +103,7 @@
             </a>
             <span>Python</span>
           </div>
-          <div class="card-bottom">
-            Proficient in software development and AI projects
-          </div>
+          <div class="card-bottom" data-en="Proficient in software development and automation" data-fi="Pätevä ohjelmistokehityksessä ja automatiossa">Proficient in software development and automation</div>
         </div>
         <div class="card">
           <div class="card-top">
@@ -74,9 +112,7 @@
             </a>
             <span>JavaScript</span>
           </div>
-          <div class="card-bottom">
-            Experienced with web development and interactive apps
-          </div>
+          <div class="card-bottom" data-en="Experienced with web development and interactive apps" data-fi="Kokemusta verkkokehityksestä ja interaktiivisista sovelluksista">Experienced with web development and interactive apps</div>
         </div>
         <div class="card">
           <div class="card-top">
@@ -85,9 +121,7 @@
             </a>
             <span>HTML</span>
           </div>
-          <div class="card-bottom">
-            Skilled in building structured and semantic web pages
-          </div>
+          <div class="card-bottom" data-en="Skilled in building structured and semantic web pages" data-fi="Taitava rakentamaan strukturoituja ja semanttisia verkkosivuja">Skilled in building structured and semantic web pages</div>
         </div>
         <div class="card">
           <div class="card-top">
@@ -96,16 +130,14 @@
             </a>
             <span>CSS</span>
           </div>
-          <div class="card-bottom">
-            Experienced in styling and responsive web design
-          </div>
+          <div class="card-bottom" data-en="Experienced in styling and responsive web design" data-fi="Kokemusta tyylittelystä ja responsiivisesta verkkosuunnittelusta">Experienced in styling and responsive web design</div>
         </div>
       </div>
     </section>
     
     <section id="tools-technologies">
-        <h2>Tools & Technologies</h2>
-        <h3>Version Control</h3>
+        <h2 data-en="Tools & Technologies" data-fi="Työkalut ja teknologiat">Tools & Technologies</h2>
+        <h3 data-en="Version Control" data-fi="Versiohallinta">Version Control</h3>
         <div class="t-t-grid">
           <div class="card">
             <div class="card-top">
@@ -114,28 +146,20 @@
               </a>
               <span>Git</span>
             </div>
-            <div class="card-bottom">
-              Proficient in distributed version control and collaboration workflows.
-            </div>
+            <div class="card-bottom" data-en="Proficient in distributed version control and collaboration workflows" data-fi="Pätevä hajautetussa versiohallinnassa ja yhteistyötyönkuluissa">Proficient in distributed version control and collaboration workflows</div>
           </div>
-        </div>
-      
-        <h3>Cloud Platforms</h3>
-        <div class="t-t-grid">
           <div class="card">
             <div class="card-top">
-              <a href="https://azure.microsoft.com" target="_blank" rel="noopener noreferrer">
-                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/microsoftazure.svg" alt="Microsoft Azure Logo" class="lang-logo" />
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg" alt="GitHub Logo" class="lang-logo" />
               </a>
-              <span>Azure</span>
+              <span>GitHub</span>
             </div>
-            <div class="card-bottom">
-              Experienced with scalable cloud infrastructure and AI services.
-            </div>
+            <div class="card-bottom" data-en="Version control and collaboration platform" data-fi="Versiohallinta- ja yhteistyöalusta">Version control and collaboration platform</div>
           </div>
         </div>
       
-        <h3>DevOps</h3>
+        <h3 data-en="DevOps & Infrastructure" data-fi="DevOps ja infrastruktuuri">DevOps & Infrastructure</h3>
         <div class="t-t-grid">
           <div class="card">
             <div class="card-top">
@@ -144,39 +168,21 @@
               </a>
               <span>Docker</span>
             </div>
-            <div class="card-bottom">
-              Containerization for efficient deployment and environment consistency.
-            </div>
+            <div class="card-bottom" data-en="Containerization for efficient deployment and environment consistency" data-fi="Kontainerointi tehokkaaseen käyttöönottoon ja ympäristön yhdenmukaisuuteen">Containerization for efficient deployment and environment consistency</div>
           </div>
-        </div>
-      
-        <h3>Frameworks & Libraries</h3>
           <div class="card">
             <div class="card-top">
-              <a href="https://www.djangoproject.com/" target="_blank" rel="noopener noreferrer">
-                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/django.svg" alt="Django Logo" class="lang-logo" />
+              <a href="https://redis.io" target="_blank" rel="noopener noreferrer">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/redis.svg" alt="Redis Logo" class="lang-logo" />
               </a>
-              <span>Django</span>
+              <span>Redis</span>
             </div>
-            <div class="card-bottom">
-              Full-stack web framework for rapid development and clean design.
-            </div>
+            <div class="card-bottom" data-en="In-memory data structure store for caching and messaging" data-fi="Muistissa oleva tietorakennetallennus välimuistitukseen ja viestintään">In-memory data structure store for caching and messaging</div>
           </div>
         </div>
       
-        <h3>Databases</h3>
+        <h3 data-en="Databases" data-fi="Tietokannat">Databases</h3>
         <div class="t-t-grid">
-          <div class="card">
-            <div class="card-top">
-              <a href="https://www.postgresql.org/" target="_blank" rel="noopener noreferrer">
-                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/postgresql.svg" alt="PostgreSQL Logo" class="lang-logo" />
-              </a>
-              <span>PostgreSQL</span>
-            </div>
-            <div class="card-bottom">
-              Advanced open-source relational database system.
-            </div>
-          </div>
           <div class="card">
             <div class="card-top">
               <a href="https://www.mongodb.com/" target="_blank" rel="noopener noreferrer">
@@ -184,58 +190,136 @@
               </a>
               <span>MongoDB</span>
             </div>
-            <div class="card-bottom">
-              NoSQL document database for flexible and scalable data storage.
+            <div class="card-bottom" data-en="NoSQL document database for flexible and scalable data storage" data-fi="NoSQL-asiakirjatietokanta joustavaan ja skaalautuvaan tietojen tallennukseen">NoSQL document database for flexible and scalable data storage</div>
+          </div>
+          <div class="card">
+            <div class="card-top">
+              <a href="https://www.sql.org" target="_blank" rel="noopener noreferrer">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/postgresql.svg" alt="SQL Logo" class="lang-logo" />
+              </a>
+              <span>SQL</span>
             </div>
+            <div class="card-bottom" data-en="Structured query language for relational database management" data-fi="Rakenteinen kyselykieli relaatiotietokantojen hallintaan">Structured query language for relational database management</div>
           </div>
         </div>
 
-        <h3>CI/CD</h3>
+        <h3 data-en="Game Development" data-fi="Pelikehitys">Game Development</h3>
         <div class="t-t-grid">
           <div class="card">
             <div class="card-top">
-              <a href="https://github.com/features/actions" target="_blank" rel="noopener noreferrer">
-                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/githubactions.svg" alt="GitHub Actions Logo" class="lang-logo" />
+              <a href="https://godotengine.org" target="_blank" rel="noopener noreferrer">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/godotengine.svg" alt="Godot Logo" class="lang-logo" />
               </a>
-              <span>GitHub Actions</span>
+              <span>Godot</span>
             </div>
-            <div class="card-bottom">
-              Automating workflows from code to deployment.
+            <div class="card-bottom" data-en="Open-source game engine for 2D and 3D game development" data-fi="Avoimen lähdekoodin pelimoottori 2D- ja 3D-pelikehitykseen">Open-source game engine for 2D and 3D game development</div>
+          </div>
+          <div class="card">
+            <div class="card-top">
+              <a href="https://unity.com" target="_blank" rel="noopener noreferrer">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/unity.svg" alt="Unity Logo" class="lang-logo" />
+              </a>
+              <span>Unity</span>
             </div>
+            <div class="card-bottom" data-en="Cross-platform game engine for interactive content creation" data-fi="Alustariippumaton pelimoottori interaktiivisen sisällön luomiseen">Cross-platform game engine for interactive content creation</div>
+          </div>
+        </div>
+
+        <h3 data-en="3D & Design" data-fi="3D ja suunnittelu">3D & Design</h3>
+        <div class="t-t-grid">
+          <div class="card">
+            <div class="card-top">
+              <a href="https://www.blender.org" target="_blank" rel="noopener noreferrer">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/blender.svg" alt="Blender Logo" class="lang-logo" />
+              </a>
+              <span>Blender</span>
+            </div>
+            <div class="card-bottom" data-en="Open-source 3D creation suite for modeling and animation" data-fi="Avoimen lähdekoodin 3D-luomispaketti mallinnukseen ja animointiin">Open-source 3D creation suite for modeling and animation</div>
+          </div>
+        </div>
+
+        <h3 data-en="Productivity" data-fi="Tuottavuus">Productivity</h3>
+        <div class="t-t-grid">
+          <div class="card">
+            <div class="card-top">
+              <a href="https://www.microsoft.com/microsoft-365" target="_blank" rel="noopener noreferrer">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/microsoftoffice.svg" alt="Microsoft 365 Logo" class="lang-logo" />
+              </a>
+              <span>Microsoft 365</span>
+            </div>
+            <div class="card-bottom" data-en="Office productivity suite for documentation and collaboration" data-fi="Toimistotuottavuussarja dokumentointiin ja yhteistyöhön">Office productivity suite for documentation and collaboration</div>
           </div>
         </div>
       </section>      
 
     <section id="projects">
-      <h2>Projects</h2>
+      <h2 data-en="Projects" data-fi="Projektit">Projects</h2>
       <div class="project-grid">
-        <div class="card">
-          <h3>Stock Market</h3>
-          <p>Fictional stock market simulation built with Python, with shorting, selling and buying fictional stocks and trying to compete with 3 other machine learning utilizing AI players.</p>
+        <div class="card project-card">
+          <h3 data-en="Stock Market Simulation" data-fi="Osakemarkkinasimulaatio">Stock Market Simulation</h3>
+          <p data-en="A fictional stock market simulation built with Python, featuring shorting, buying, and selling of fictional stocks. Compete against 3 other machine learning AI players in this interactive trading environment." 
+             data-fi="Fiktiivinen osakemarkkinasimulaatio, joka on rakennettu Pythonilla. Sisältää shorttausta, ostoa ja myyntiä fiktiivisillä osakkeilla. Kilpaile 3 muuta koneoppimista hyödyntävää tekoälypelaajaa vastaan tässä interaktiivisessa kaupankäyntiympäristössä.">
+            A fictional stock market simulation built with Python, featuring shorting, buying, and selling of fictional stocks. Compete against 3 other machine learning AI players in this interactive trading environment.
+          </p>
+          <a href="https://github.com/Aarnixx/Stock-Market" target="_blank" rel="noopener noreferrer" class="project-link">
+            <i class="fa-brands fa-github"></i> <span data-en="View on GitHub" data-fi="Katso GitHubissa">View on GitHub</span>
+          </a>
         </div>
-        <div class="card">
-          <h3>Project 2</h3>
-          <p>Random</p>
+      </div>
+    </section>
+
+    <section id="education">
+      <h2 data-en="Education" data-fi="Koulutus">Education</h2>
+      <div class="education-timeline">
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h3>Keuda</h3>
+            <p class="timeline-period">2025 - <span data-en="Present" data-fi="Nykyhetki">Present</span></p>
+            <p class="timeline-description" data-en="Information and Communication Technology - Basic Degree" data-fi="Tieto- ja viestintätekniikan perustutkinto">Information and Communication Technology - Basic Degree</p>
+          </div>
         </div>
-        <div class="card">
-          <h3>Project 3</h3>
-          <p>Random</p>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h3>Koivusaaren Koulu</h3>
+            <p class="timeline-period">2021 - 2025</p>
+            <p class="timeline-description" data-en="Primary School" data-fi="Peruskoulu">Primary School</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <h2 data-en="Work Experience" data-fi="Työkokemus">Work Experience</h2>
+      <div class="experience-timeline">
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h3>K-Rauta</h3>
+            <p class="timeline-period">2024</p>
+            <p class="timeline-description" data-en="2-week TET internship (work experience program)" data-fi="2 viikon TET-harjoittelu">2-week TET internship (work experience program)</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h3>Koivusaaren Koulu</h3>
+            <p class="timeline-period">2023</p>
+            <p class="timeline-description" data-en="1-week TET internship (work experience program)" data-fi="1 viikon TET-harjoittelu">1-week TET internship (work experience program)</p>
+          </div>
         </div>
       </div>
     </section>
 
     <section id="cv">
-      <h2>Downloads</h2>
+      <h2 data-en="Downloads" data-fi="Lataukset">Downloads</h2>
       <div class="cv-container">
-        <a href="CV(FIN)2.pdf" download class="cv-download">
-          <i class="fa-solid fa-file-pdf"></i> Resume (PDF)
+        <a href="AarniAnnanolliCV.pdf" download class="cv-download">
+          <i class="fa-solid fa-file-pdf"></i> <span data-en="Download CV (PDF)" data-fi="Lataa CV (PDF)">Download CV (PDF)</span>
         </a>
       </div>
     </section>
 
     <section id="contact">
-      <h2>Contact</h2>
-      <p>Interested in collaborating? Reach out below:</p>
+      <h2 data-en="Contact" data-fi="Yhteystiedot">Contact</h2>
+      <p data-en="Interested in collaborating? Reach out below:" data-fi="Kiinnostunut yhteistyöstä? Ota yhteyttä alla:">Interested in collaborating? Reach out below:</p>
       <div class="contact-links">
         <a href="mailto:aarninko@gmail.com"><i class="fa-solid fa-envelope"></i> aarninko@gmail.com</a>
         <a href="https://github.com/Aarnixx" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i> GitHub</a>
@@ -247,5 +331,3 @@
   <script src="script.js" defer></script>
 </body>
 </html>
-
-
