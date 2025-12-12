@@ -1,11 +1,16 @@
 const cfg = {
-  roles: [
-    "Python Developer",
-    "Game Developer",
-    "Software Developer in Training",
-    "AI & ML Hobbyist",
-    "Creative Problem Solver"
-  ],
+  roles: {
+    en: [
+      "Software Developer in Training",
+      "C# Specialist",
+      "Game Developer",
+    ],
+    fi: [
+      "Ohjelmistokehittäjä koulutuksessa",
+      "C#-asiantuntija",
+      "Pelikehittäjä",
+    ]
+  },
   roleSwitchInterval: 3000,
   roleFadeDuration: 350,
   revealRootMargin: "0px 0px -12% 0px",
@@ -250,9 +255,22 @@ function Wavefield(canvas) {
   return { start, stop, resize };
 }
 
+let currentLang = localStorage.getItem('lang') || 'en';
+let roleCyclerInterval = null;
+let roleCyclerTimeout = null;
+
 function setupRoleCycler() {
   const brand = $(".brand");
   if (!brand) return;
+  if (roleCyclerInterval) {
+    clearInterval(roleCyclerInterval);
+    roleCyclerInterval = null;
+  }
+  if (roleCyclerTimeout) {
+    clearTimeout(roleCyclerTimeout);
+    roleCyclerTimeout = null;
+  }
+  
   let holder = brand.querySelector(".role-cycler");
   if (!holder) {
     holder = document.createElement("div");
@@ -269,9 +287,15 @@ function setupRoleCycler() {
     brand.appendChild(holder);
   }
 
+  const existingSpan = holder.querySelector("#role-cycle");
+  if (existingSpan) {
+    existingSpan.remove();
+  }
+
   const span = document.createElement("span");
   span.id = "role-cycle";
-  span.textContent = cfg.roles[0];
+  const roles = cfg.roles[currentLang] || cfg.roles.en;
+  span.textContent = roles[0];
   Object.assign(span.style, {
     display: "inline-block",
     transition: `opacity ${cfg.roleFadeDuration}ms ease, transform ${cfg.roleFadeDuration}ms ease`,
@@ -280,25 +304,66 @@ function setupRoleCycler() {
   holder.appendChild(span);
 
   let idx = 0;
-  let timeoutId = null;
 
   function showNextRole() {
-    const nextIdx = (idx + 1) % cfg.roles.length;
+    const roles = cfg.roles[currentLang] || cfg.roles.en;
+    const nextIdx = (idx + 1) % roles.length;
     span.style.opacity = "0";
     span.style.transform = "translateY(-6px)";
-    timeoutId = setTimeout(() => {
-      span.textContent = cfg.roles[nextIdx];
+    roleCyclerTimeout = setTimeout(() => {
+      span.textContent = roles[nextIdx];
       span.style.opacity = "1";
       span.style.transform = "translateY(0)";
       idx = nextIdx;
     }, cfg.roleFadeDuration);
   }
 
-  const interval = setInterval(showNextRole, cfg.roleSwitchInterval);
+  roleCyclerInterval = setInterval(showNextRole, cfg.roleSwitchInterval);
+  
   window.addEventListener("beforeunload", () => {
-    clearInterval(interval);
-    if (timeoutId) clearTimeout(timeoutId);
+    if (roleCyclerInterval) clearInterval(roleCyclerInterval);
+    if (roleCyclerTimeout) clearTimeout(roleCyclerTimeout);
   });
+}
+
+function switchLanguage(lang) {
+  currentLang = lang;
+  localStorage.setItem('lang', lang);
+  document.documentElement.lang = lang;
+
+  const elements = document.querySelectorAll('[data-en], [data-fi]');
+  elements.forEach(el => {
+    if (el.dataset[lang]) {
+      if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+        el.value = el.dataset[lang];
+      } else {
+        el.textContent = el.dataset[lang];
+      }
+    }
+  });
+
+  const langButtons = document.querySelectorAll('.lang-btn');
+  langButtons.forEach(btn => {
+    if (btn.dataset.lang === lang) {
+      btn.classList.add('active');
+    } else {
+      btn.classList.remove('active');
+    }
+  });
+
+  setupRoleCycler();
+}
+
+function setupLanguageSwitcher() {
+  const langButtons = document.querySelectorAll('.lang-btn');
+  langButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const lang = btn.dataset.lang;
+      switchLanguage(lang);
+    });
+  });
+
+  switchLanguage(currentLang);
 }
 
 function setupScrollReveal() {
@@ -370,6 +435,7 @@ function setupCardTilt() {
 function initAll() {
   const canvas = setupFullPageCanvas();
   const wave = Wavefield(canvas);
+  setupLanguageSwitcher();
   setupRoleCycler();
   setupScrollReveal();
   setupCardTilt();
