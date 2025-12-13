@@ -129,10 +129,10 @@ header::before {
 .brand {
   display: flex;
   flex-direction: column;
-  flex: 1;
+  flex: 0 0 auto;
   min-width: 0;
   position: relative;
-  z-index: 100;
+  z-index: 1000;
   isolation: isolate;
   transform: translateZ(0);
   will-change: auto;
@@ -140,6 +140,8 @@ header::before {
   -webkit-filter: none !important;
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
+  max-width: 50%;
+  overflow: visible;
 }
 
 .logo {
@@ -154,7 +156,7 @@ header::before {
   line-height: 1.1;
   white-space: nowrap;
   position: relative;
-  z-index: 101;
+  z-index: 1001;
   transform: translateZ(0);
   will-change: auto;
   filter: none !important;
@@ -162,6 +164,9 @@ header::before {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow: visible;
+  width: auto;
+  display: block;
 }
 
 .small.muted {
@@ -189,7 +194,7 @@ header::before {
   gap: 2.5rem;
   flex-shrink: 0;
   position: relative;
-  z-index: 100;
+  z-index: 10;
   isolation: isolate;
   transform: translateZ(0);
   will-change: auto;
@@ -197,14 +202,18 @@ header::before {
   -webkit-filter: none !important;
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
+  flex-wrap: wrap;
+  max-width: 50%;
+  justify-content: flex-end;
 }
 
 .nav-links {
   display: flex;
-  gap: 2.5rem;
+  gap: 1.5rem;
   list-style: none;
   flex-wrap: wrap;
   align-items: center;
+  max-width: 100%;
 }
 
 .lang-switcher {
